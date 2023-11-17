@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src: local("SF Pro Text"), url("../../fonts/SFProText-Bold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "SF Pro Text";
+  src: local("SF Pro Text"), url("../../fonts/SFProText-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "SF Pro Text";
+  src: local("SF Pro Text"), url("../../fonts/SFProText-Regular.ttf");
+
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SF Pro Text";
+  src: local("SF Pro Text"), url("../../fonts/SFProText-Light.ttf");
+  font-weight: 300;
+}
+
+.screen {
+  min-height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: content-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(226, 226, 226, 0);
+}
+
+.authPlatform {
+  position: relative;
+  display: grid;
+  grid-template-rows: 20% 80%;
+  background-color: rgb(255, 255, 255);
+
+  max-width: 450px;
+  min-height: 380px;
+  padding: 20px 28px;
+  border-radius: 15px;
+}
+
+.links {
+  background: rgb(255, 255, 255);
+  font-family: "SF Pro Text";
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.link {
+  display: inline-block;
+  color: black;
+
+  padding: 1px 6px 1px 0px;
+}
+.link:not(:last-child) {
+  margin-right: 12px;
+}
+
+.ibj {
+  grid-column: 2/3;
+  position: relative;
+}
+
+.ibj img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+
+  object-fit: cover;
+}
+
+@media (max-width: 479px) {
+  .screen {
+    grid-template-columns: auto;
+    grid-template-rows: 23% 77%;
+  }
+}
+@media (max-width: 686px) {
+  .container {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 479px) {
+  .container {
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 100%;
+
+    align-items: start;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transform: translateY(-17px);
+  }
+}
+
+@media (max-width: 479px) {
+  .authPlatform {
+    max-width: 100%;
+    min-height: 100%;
+    padding: 20px 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .links {
+    background: rgb(255, 255, 255);
+    font-family: "SF Pro Text";
+    font-weight: 600;
+    font-size: 20px;
+
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 479px) {
+  .ibj {
+    grid-column: auto;
+    grid-row: 1/2;
+  }
+}
+
+@media (max-width: 479px) {
+  .ibj img {
+    width: 100%;
+    height: 100%;
+  }
+}
