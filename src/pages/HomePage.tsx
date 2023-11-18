@@ -6,7 +6,6 @@ import { removeUser } from "../store/slices/userSlice";
 const HomePage = () => {
   const { isAuth, email } = useAuth();
   const dispatch = useDispatch();
-  // const token = localStorage.getItem("token");
 
   return isAuth ? (
     <div>

@@ -2,7 +2,6 @@
   display: grid;
   grid-template-rows: 80% 20%;
 }
-
 .middle_container > :not(:last-child) {
   margin-bottom: 15px;
 }
@@ -11,10 +10,13 @@
   width: 100%;
   padding: 11px 0px 10px 9px;
   background: rgb(255, 252, 252);
-  box-shadow: inset 0px 0px 2px 1px rgb(235, 226, 226);
-  border-radius: 8px;
-
   outline: none;
+
+  border: 1px solid rgb(200, 190, 190);
+
+  border-radius: 8px;
+  -webkit-appearance: none;
+
   font-family: "SF Pro Text";
   font-weight: 600;
   font-size: 13px;
@@ -28,7 +30,7 @@
 }
 
 .input:focus {
-  box-shadow: inset 0px 0px 2px 1px rgba(3, 32, 32, 0.432);
+  border: 1px solid rgba(3, 32, 32, 0.432);
 }
 
 .label {
@@ -36,6 +38,16 @@
   font-family: "SF Pro Text";
   font-weight: 600;
   font-size: 12px;
+}
+.errorLabel {
+  display: inline-block;
+  font-family: "SF Pro Text";
+  font-weight: 600;
+  font-size: 12px;
+  color: red;
+
+  animation-name: ErrorFrame;
+  animation-duration: 200ms;
 }
 
 .text_wrapper {
@@ -57,26 +69,6 @@
 .text:hover {
   color: rgba(0, 0, 0, 0.664);
 }
-
-// .text::after {
-//   position: absolute;
-//   content: "Try to remember! Or follow the link";
-//   bottom: 20px;
-//   left: 325px;
-//   width: 180px;
-//   height: 60px;
-//   background: rgb(223, 223, 223);
-//   padding: 10px 15px 10px 15px;
-//   border-radius: 10px;
-//   text-align: left;
-
-//   z-index: 5;
-//   display: none;
-// }
-
-// .text:hover::after {
-//   display: block;
-// }
 
 .textModal {
   position: absolute;
@@ -108,6 +100,8 @@
 }
 
 .submit {
+  position: relative;
+
   width: 100%;
   padding: 10px 0px;
 
@@ -132,6 +126,23 @@
 }
 .submit:hover {
   background-color: rgba(16, 202, 202, 0.767);
+}
+
+.loader {
+  position: absolute;
+  top: 30%;
+  left: 39.2%;
+
+  width: 14px;
+  height: 14px;
+  background: rgba(16, 202, 202, 0);
+
+  border-radius: 50%;
+  border: 4px solid rgba(16, 202, 202, 0);
+  border-top: 4px solid white;
+  border-right: 4px solid white;
+
+  animation: spin 500ms linear infinite;
 }
 
 @media (max-width: 479px) {
@@ -162,5 +173,26 @@
 
     padding: 7px 12px 5px 12px;
     border-radius: 10px;
+  }
+}
+
+@keyframes ErrorFrame {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

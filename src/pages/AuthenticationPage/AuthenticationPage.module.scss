@@ -141,3 +141,25 @@
     height: 100%;
   }
 }
+
+.pageEnter {
+  opacity: 00;
+  transform: scale(0.94);
+}
+
+.pageEnterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 136ms, transform 136ms;
+}
+
+.pageExit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pageExitActive {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 136ms, transform 136ms;
+}

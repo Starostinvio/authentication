@@ -1,5 +1,4 @@
 import styles from "./AuthenticationPage.module.scss";
-import "./animation.css";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import {
   NavLink,
@@ -54,7 +53,12 @@ const AuthenticationPage = () => {
             <CSSTransition
               key={location.pathname}
               timeout={136}
-              classNames="page"
+              classNames={{
+                enter: styles.pageEnter,
+                enterActive: styles.pageEnterActive,
+                exit: styles.pageExit,
+                exitActive: styles.pageExitActive,
+              }}
               unmountOnExit
             >
               {currentOutlet}

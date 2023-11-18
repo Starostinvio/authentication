@@ -4,51 +4,29 @@ import { useNavigate } from "react-router-dom";
 import { Form } from "./Form/Index";
 import { setUser } from "../store/slices/userSlice";
 import { error } from "console";
+import { apiService } from "../App";
 
 const SignUp = () => {
   const [invalidData, setInvalidData] = useState(false);
+  const [isLoader, setIsLoader] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleRegistr(email: string, password: string) {
     try {
-      const response = await fetch("", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: email,
-          password: password,
-        }),
+      setIsLoader(true);
+      const result = await apiService.mockRegistration({
+        password,
+        email,
       });
-      const data = await response.json();
-      dispatch(
-        setUser({
-          email: data.email,
-          id: data.id,
-          token: data.token,
-        })
-      );
-      navigate("/", { replace: true });
-    } catch {}
+      console.log(result);
+      return result;
+    } catch (error) {
+      console.log("Error:", error);
+    } finally {
+      setIsLoader(false);
+    }
   }
-  //   const auth = getAuth();
-
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then(({ user }: { user: any }) => {
-  //       console.log(user.accessToken, "user");
-  //       dispatch(
-  //         setUser({
-  //           email: user.email,
-  //           id: user.uid,
-  //           token: user.accessToken,
-  //         })
-  //       );
-  //       navigate("/", { replace: true });
-  //     })
-  //     .catch((e) => console.error("error", e));
-  // };
 
   return (
     <>
@@ -56,6 +34,7 @@ const SignUp = () => {
         title="Sign Up"
         handleClick={handleRegistr}
         data={{ invalidData, setInvalidData }}
+        loader={isLoader}
       />
     </>
   );

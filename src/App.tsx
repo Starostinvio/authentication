@@ -8,6 +8,9 @@ import LoginPage from "./pages/LoginPage";
 import RegistrPage from "./pages/RegistrPage";
 import AuthenticationPage from "./pages/AuthenticationPage/Index";
 import Layout from "./Layout";
+import { APIService } from "./utils/APIService";
+
+export const apiService = new APIService("https://dummyjson.com");
 
 export default function App() {
   return (

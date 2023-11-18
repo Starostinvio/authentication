@@ -3,72 +3,44 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
+import { apiService } from "../App";
+import { isConstructorDeclaration } from "typescript";
+
+function extractUsername(email: string): string {
+  const atIndex = email.indexOf("@");
+  if (atIndex === -1) {
+    throw new Error("Invalid email format");
+  }
+  return email.substring(0, atIndex);
+}
 
 const Login = () => {
   const [invalidData, setInvalidData] = useState(false);
+  const [isLoader, setIsLoader] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleLogin(email: string, password: string) {
     try {
-      let response = await fetch("https://dummyjson.com/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: email,
-          password: password,
-        }),
-      });
+      setIsLoader(true);
+      const result = await apiService.login(extractUsername(email), password);
 
-      const data = await response.json();
-
-      if (data.message) {
-        setInvalidData(true);
-        return;
+      if (result.token) {
+        dispatch(
+          setUser({
+            email: result.email,
+            id: result.id,
+            token: result.token,
+          })
+        );
+        navigate("/", { replace: true });
       }
-      dispatch(
-        setUser({
-          email: data.email,
-          id: data.id,
-          token: data.token,
-        })
-      );
-      //или запись в localStorage?
-      // localStorage.setItem("token", data.token);
-      navigate("/", { replace: true });
-    } catch {
-      // setInvalidData(true);
+    } catch (e) {
+      console.log(e);
+      setInvalidData(true);
+    } finally {
+      setIsLoader(false);
     }
-
-    // fetch("https://dummyjson.com/auth/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     username: email,
-    //     password: password,
-    //   }),
-    // })
-    //   .then(
-    //     (response) => response.json(),
-    //     () => {
-    //       alert("Invalid user");
-    //       return;
-    //     }
-    //   )
-    //   .then((data) => {
-    //     dispatch(
-    //       setUser({
-    //         email: data.email,
-    //         id: data.id,
-    //         token: data.token,
-    //       })
-    //     );
-    //     navigate("/", { replace: true });
-    //   });
   }
 
   return (
@@ -77,6 +49,7 @@ const Login = () => {
         title="Log In"
         handleClick={handleLogin}
         data={{ invalidData, setInvalidData }}
+        loader={isLoader}
       />
     </>
   );
