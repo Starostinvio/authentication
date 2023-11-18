@@ -84,6 +84,28 @@
   object-fit: cover;
 }
 
+.pageEnter {
+  opacity: 00;
+  transform: scale(0.94);
+}
+
+.pageEnterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 136ms, transform 136ms;
+}
+
+.pageExit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pageExitActive {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 136ms, transform 136ms;
+}
+
 @media (max-width: 479px) {
   .screen {
     grid-template-columns: auto;
@@ -110,21 +132,46 @@
 }
 
 @media (max-width: 479px) {
+  // .authPlatform { \/
+  //   max-width: 100%;
+  //   min-height: 100%;
+  //   padding: 20px 20px;
+  // }
   .authPlatform {
     max-width: 100%;
     min-height: 100%;
     padding: 20px 20px;
+    grid-template-rows: 20% 80%;
   }
 }
 
 @media (max-width: 479px) {
+  // .links { \/
+  //   background: rgb(255, 255, 255);
+  //   font-family: "SF Pro Text";
+  //   font-weight: 600;
+  //   font-size: 20px;
+
+  //   padding-top: 40px;
+
+  // }
+
   .links {
     background: rgb(255, 255, 255);
     font-family: "SF Pro Text";
     font-weight: 600;
-    font-size: 20px;
+    font-size: 23px;
 
-    padding-top: 40px;
+    padding-top: 30px;
+  }
+  .link {
+    display: inline-block;
+    color: black;
+
+    padding: 1px 6px 1px 0px;
+  }
+  .link:not(:last-child) {
+    margin-right: 12px;
   }
 }
 
@@ -140,26 +187,4 @@
     width: 100%;
     height: 100%;
   }
-}
-
-.pageEnter {
-  opacity: 00;
-  transform: scale(0.94);
-}
-
-.pageEnterActive {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 136ms, transform 136ms;
-}
-
-.pageExit {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.pageExitActive {
-  opacity: 0;
-  transform: scale(0.94);
-  transition: opacity 136ms, transform 136ms;
 }
