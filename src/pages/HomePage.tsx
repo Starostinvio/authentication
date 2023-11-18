@@ -6,9 +6,9 @@ import { removeUser } from "../store/slices/userSlice";
 const HomePage = () => {
   const { isAuth, email } = useAuth();
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
-  return isAuth || token ? (
+  return isAuth ? (
     <div>
       <h1>Welcom</h1>
       <button onClick={() => dispatch(removeUser())}>

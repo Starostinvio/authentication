@@ -1,4 +1,6 @@
 import styles from "./AuthenticationPage.module.scss";
+import "./animation.css";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 import {
   NavLink,
   Link,
@@ -6,6 +8,7 @@ import {
   useLocation,
   useNavigate,
   useMatch,
+  useOutlet,
 } from "react-router-dom";
 import { useEffect } from "react";
 import Waves from "./img/Waves.jpg";
@@ -13,6 +16,7 @@ import Waves from "./img/Waves.jpg";
 const AuthenticationPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const currentOutlet = useOutlet();
 
   useEffect(() => {
     if ((location.pathname = "/authentication"))
@@ -34,7 +38,7 @@ const AuthenticationPage = () => {
                 opacity: isActive ? "1" : "0.2",
               })}
             >
-              Sign In
+              Log In
             </NavLink>
             <NavLink
               className={styles.link}
@@ -46,7 +50,16 @@ const AuthenticationPage = () => {
               Sign Up
             </NavLink>
           </div>
-          <Outlet />
+          <SwitchTransition>
+            <CSSTransition
+              key={location.pathname}
+              timeout={136}
+              classNames="page"
+              unmountOnExit
+            >
+              {currentOutlet}
+            </CSSTransition>
+          </SwitchTransition>
         </div>
       </div>
     </div>

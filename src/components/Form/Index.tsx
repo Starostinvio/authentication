@@ -76,9 +76,15 @@ const Form = ({
             })}
           />
 
-          {title === "Sign In" ? (
+          {title === "Log In" ? (
             <div className={styles.text_wrapper}>
-              <div className={styles.text}>{"Forgot You Password?"}</div>
+              <div className={styles.text}>
+                {"Forgot You Password?"}
+                <div className={styles.textModal}>
+                  Try to remember!
+                  {/* Or follow the <a href="#">link</a> */}
+                </div>
+              </div>
             </div>
           ) : (
             <div className={styles.text_wrapper}></div>

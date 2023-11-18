@@ -36,7 +36,7 @@ const Login = () => {
         })
       );
       //или запись в localStorage?
-      localStorage.setItem("token", data.token);
+      // localStorage.setItem("token", data.token);
       navigate("/", { replace: true });
     } catch {
       // setInvalidData(true);
@@ -74,7 +74,7 @@ const Login = () => {
   return (
     <>
       <Form
-        title="Sign In"
+        title="Log In"
         handleClick={handleLogin}
         data={{ invalidData, setInvalidData }}
       />
