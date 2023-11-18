@@ -109,7 +109,7 @@
 @media (max-width: 479px) {
   .screen {
     grid-template-columns: auto;
-    grid-template-rows: 23% 77%;
+    grid-template-rows: 20% 80%; //23 77
   }
 }
 @media (max-width: 686px) {
@@ -127,7 +127,7 @@
     align-items: start;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    transform: translateY(-17px);
+    transform: translateY(-27px); //17
   }
 }
 
