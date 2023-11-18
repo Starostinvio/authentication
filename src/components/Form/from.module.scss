@@ -84,7 +84,7 @@
   left: 325px;
   width: 180px;
   height: 40px;
-  background: rgb(223, 223, 223);
+  background: rgb(241, 241, 241);
   padding: 10px 15px 10px 15px;
   border-radius: 10px;
   text-align: left;
@@ -94,30 +94,6 @@
 }
 .text:hover .textModal {
   display: block;
-}
-
-@media (max-width: 479px) {
-  .textModal {
-    bottom: 19px;
-    left: 165px;
-    width: 180px;
-    height: 40px;
-
-    padding: 8px 13px 8px 13px;
-    border-radius: 10px;
-  }
-}
-
-@media (max-width: 375px) {
-  .textModal {
-    bottom: 19px;
-    left: 130px;
-    width: 160px;
-    height: 34px;
-
-    padding: 7px 12px 5px 12px;
-    border-radius: 10px;
-  }
 }
 
 .errors {
@@ -165,8 +141,26 @@
   }
 }
 
+@media (max-width: 479px) {
+  .textModal {
+    bottom: 19px;
+    left: 165px;
+    width: 180px;
+    height: 40px;
+
+    padding: 8px 13px 8px 13px;
+    border-radius: 10px;
+  }
+}
+
 @media (max-width: 375px) {
-  .form {
-    grid-template-rows: 90% 10%;
+  .textModal {
+    bottom: 19px;
+    left: 130px;
+    width: 160px;
+    height: 34px;
+
+    padding: 7px 12px 5px 12px;
+    border-radius: 10px;
   }
 }
