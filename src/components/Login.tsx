@@ -6,13 +6,13 @@ import { setUser } from "../store/slices/userSlice";
 import { apiService } from "../App";
 import { isConstructorDeclaration } from "typescript";
 
-function extractUsername(email: string): string {
-  const atIndex = email.indexOf("@");
-  if (atIndex === -1) {
-    throw new Error("Invalid email format");
-  }
-  return email.substring(0, atIndex);
-}
+// function extractUsername(email: string): string {
+//   const atIndex = email.indexOf("@");
+//   if (atIndex === -1) {
+//     throw new Error("Invalid email format");
+//   }
+//   return email.substring(0, atIndex);
+// }
 
 const Login = () => {
   const [invalidData, setInvalidData] = useState(false);
@@ -23,7 +23,7 @@ const Login = () => {
   async function handleLogin(email: string, password: string) {
     try {
       setIsLoader(true);
-      const result = await apiService.login(extractUsername(email), password);
+      const result = await apiService.login(email, password);
 
       if (result.token) {
         dispatch(

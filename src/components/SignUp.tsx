@@ -19,7 +19,7 @@ const SignUp = () => {
         password,
         email,
       });
-      console.log(result);
+
       return result;
     } catch (error) {
       console.log("Error:", error);
