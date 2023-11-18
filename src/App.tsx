@@ -1,7 +1,4 @@
-import "./styles.css";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";

@@ -6,14 +6,6 @@ import { setUser } from "../store/slices/userSlice";
 import { apiService } from "../App";
 import { isConstructorDeclaration } from "typescript";
 
-// function extractUsername(email: string): string {
-//   const atIndex = email.indexOf("@");
-//   if (atIndex === -1) {
-//     throw new Error("Invalid email format");
-//   }
-//   return email.substring(0, atIndex);
-// }
-
 const Login = () => {
   const [invalidData, setInvalidData] = useState(false);
   const [isLoader, setIsLoader] = useState(false);

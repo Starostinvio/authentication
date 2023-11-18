@@ -9,11 +9,9 @@
 .input {
   width: 100%;
   padding: 11px 0px 10px 9px;
-  // background: rgb(255, 252, 252);
   background: rgb(253, 253, 253);
   outline: none;
 
-  // border: 1px solid rgb(200, 190, 190);
   border: 1px solid rgb(226, 223, 223);
   border-radius: 8px;
   -webkit-appearance: none;
@@ -166,10 +164,8 @@
   }
   .submit {
     padding: 12px 0px;
-
     background-color: rgba(16, 202, 202, 0.884);
     border-radius: 4px;
-
     font-size: 13px;
   }
 
@@ -187,15 +183,6 @@
     border-radius: 10px;
     font-size: 14px;
   }
-  // .textModal { \/
-  //   bottom: 19px;
-  //   left: 165px;
-  //   width: 180px;
-  //   height: 40px;
-
-  //   padding: 8px 13px 8px 13px;
-  //   border-radius: 10px;
-  // }
   .errors {
     width: 100%;
     text-align: right;
@@ -209,15 +196,6 @@
 }
 
 @media (max-width: 375px) {
-  // .textModal { \/
-  //   bottom: 19px;
-  //   left: 130px;
-  //   width: 160px;
-  //   height: 34px;
-
-  //   padding: 7px 12px 5px 12px;
-  //   border-radius: 10px;
-  // }
   .textModal {
     bottom: 19px;
     left: 130px;
