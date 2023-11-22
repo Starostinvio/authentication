@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "./from.module.scss";
 import { useForm, FieldError } from "react-hook-form";
 import classNames from "classnames";
+import { IoMdEye } from "react-icons/io";
+import { IoMdEyeOff } from "react-icons/io";
 
 const Form = ({
   title,
@@ -19,6 +21,7 @@ const Form = ({
 }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const [invalidSignUp, setInvalidSignUp] = useState(false);
   const { invalidData, setInvalidData } = data;
 
@@ -85,18 +88,33 @@ const Form = ({
           >
             <p>Password</p>
           </label>
-          <input
-            id="password"
-            className={styles.input}
-            type="password"
-            value={pass}
-            onFocus={() => clickInput()}
-            placeholder="Password"
-            {...register("password", {
-              required: true,
-              onChange: (e) => setPass(e.target.value),
-            })}
-          />
+          <div className={styles.inputBox}>
+            <input
+              id="password"
+              className={styles.input}
+              type={showPass ? "text" : "password"}
+              value={pass}
+              onFocus={() => clickInput()}
+              placeholder="Password"
+              {...register("password", {
+                required: true,
+                onChange: (e) => setPass(e.target.value),
+              })}
+            />
+            <div className={styles.lockPassBox}>
+              {showPass ? (
+                <IoMdEye
+                  className={styles.showPass}
+                  onClick={() => setShowPass((state) => !state)}
+                />
+              ) : (
+                <IoMdEyeOff
+                  className={styles.showPass}
+                  onClick={() => setShowPass((state) => !state)}
+                />
+              )}
+            </div>
+          </div>
 
           {title === "Log In" ? (
             <div className={styles.text_wrapper}>

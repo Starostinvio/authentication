@@ -46,7 +46,7 @@
   grid-template-rows: 20% 80%;
   background-color: rgb(255, 255, 255);
 
-  max-width: 450px;
+  width: 450px;
   min-height: 380px;
   padding: 20px 28px;
   border-radius: 15px;
@@ -128,7 +128,8 @@
     transform: translateY(-27px);
   }
   .authPlatform {
-    max-width: 100%;
+    width: 100%;
+    // max-width: 100%;
     min-height: 100%;
     padding: 20px 20px;
     grid-template-rows: 20% 80%;
