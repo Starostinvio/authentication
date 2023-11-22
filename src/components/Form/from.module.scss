@@ -6,7 +6,7 @@
   margin-bottom: 15px;
 }
 
-.inputBox {
+.inputPassBox {
   // width: 100%;
   position: relative;
   z-index: 0;
@@ -55,6 +55,10 @@
   font-family: "SF Pro Text";
   font-weight: 600;
   font-size: 13px;
+}
+
+.inputPassBox input {
+  padding: 11px 37px 10px 9px;
 }
 
 .input::placeholder {
@@ -185,12 +189,16 @@
     display: grid;
     grid-template-rows: 75% 25%;
   }
+
   .input {
     padding: 13px 0px 12px 11px;
     font-size: 16px;
   }
   .input::placeholder {
     font-size: 16px;
+  }
+  .inputPassBox input {
+    padding: 11px 42px 10px 9px;
   }
   .label {
     font-size: 14px;
@@ -199,7 +207,8 @@
     font-size: 14px;
   }
   .lockPassBox {
-    width: 15%;
+    width: 10%;
+    justify-content: start;
   }
   .showPass {
     width: 20px;

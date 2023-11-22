@@ -88,7 +88,7 @@ const Form = ({
           >
             <p>Password</p>
           </label>
-          <div className={styles.inputBox}>
+          <div className={styles.inputPassBox}>
             <input
               id="password"
               className={styles.input}
