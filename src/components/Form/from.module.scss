@@ -28,11 +28,11 @@
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 
+  padding-top: 2px;
   z-index: 10;
 }
 
 .showPass {
-  // background: white;
   box-sizing: content-box;
   padding: 4px;
   cursor: pointer;
@@ -44,7 +44,7 @@
 
 .input {
   width: 100%;
-  padding: 11px 0px 10px 9px;
+  padding: 11px 11px 10px 9px;
   background: rgb(253, 253, 253);
   outline: none;
 
@@ -191,14 +191,14 @@
   }
 
   .input {
-    padding: 13px 0px 12px 11px;
+    padding: 13px 11px 12px 11px;
     font-size: 16px;
   }
   .input::placeholder {
     font-size: 16px;
   }
   .inputPassBox input {
-    padding: 11px 44px 10px 9px;
+    padding: 13px 44px 12px 11px;
   }
   .label {
     font-size: 14px;
