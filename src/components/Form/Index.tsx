@@ -103,12 +103,12 @@ const Form = ({
             />
             <div className={styles.lockPassBox}>
               {showPass ? (
-                <IoMdEye
+                <IoMdEyeOff
                   className={styles.showPass}
                   onClick={() => setShowPass((state) => !state)}
                 />
               ) : (
-                <IoMdEyeOff
+                <IoMdEye
                   className={styles.showPass}
                   onClick={() => setShowPass((state) => !state)}
                 />
